@@ -353,5 +353,33 @@
       "aiRecognition": "AI Fish Recognition",
       "tournament": "Tournament Integration"
     }
+  },
+  "weather": {
+    "sky": {
+      "clear": "Clear Sky",
+      "partlyCloudy": "Partly Cloudy",
+      "cloudy": "Cloudy",
+      "overcast": "Overcast",
+      "rain": "Rain",
+      "lightRain": "Light Rain",
+      "heavyRain": "Heavy Rain",
+      "thunderstorm": "Thunderstorm",
+      "snow": "Snow",
+      "lightSnow": "Light Snow",
+      "heavySnow": "Heavy Snow",
+      "mist": "Mist",
+      "fog": "Fog",
+      "haze": "Haze"
+    },
+    "moonPhase": {
+      "newMoon": "New Moon",
+      "waxingCrescent": "Waxing Crescent",
+      "firstQuarter": "First Quarter",
+      "waxingGibbous": "Waxing Gibbous",
+      "fullMoon": "Full Moon",
+      "waningGibbous": "Waning Gibbous",
+      "lastQuarter": "Last Quarter",
+      "waningCrescent": "Waning Crescent"
+    }
   }
 }

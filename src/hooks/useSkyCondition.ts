@@ -6,34 +6,47 @@ type SkyCondition =
   | "cloudy"
   | "overcast"
   | "rain"
+  | "light-rain"
+  | "heavy-rain"
   | "thunderstorm"
   | "snow"
+  | "light-snow"
+  | "heavy-snow"
   | "mist"
+  | "fog"
+  | "haze"
   | string;
 
 export const useSkyCondition = () => {
   const { t } = useTranslation();
 
-  const skyConditions: Record<string, string> = {
-    clear: t("weather.sky.clear"),
-    "partly-cloudy": t("weather.sky.partlyCloudy"),
-    cloudy: t("weather.sky.cloudy"),
-    overcast: t("weather.sky.overcast"),
-    rain: t("weather.sky.rain"),
-    "light-rain": t("weather.sky.lightRain"),
-    "heavy-rain": t("weather.sky.heavyRain"),
-    thunderstorm: t("weather.sky.thunderstorm"),
-    snow: t("weather.sky.snow"),
-    "light-snow": t("weather.sky.lightSnow"),
-    "heavy-snow": t("weather.sky.heavySnow"),
-    mist: t("weather.sky.mist"),
-    fog: t("weather.sky.fog"),
-    haze: t("weather.sky.haze"),
-  };
-
   const translateSkyCondition = (condition: SkyCondition): string => {
     const normalizedCondition = condition.toLowerCase().trim();
-    return skyConditions[normalizedCondition] || condition;
+
+    const conditionMap: Record<string, string> = {
+      clear: "clear",
+      "partly-cloudy": "partlyCloudy",
+      cloudy: "cloudy",
+      overcast: "overcast",
+      rain: "rain",
+      "light-rain": "lightRain",
+      "heavy-rain": "heavyRain",
+      thunderstorm: "thunderstorm",
+      snow: "snow",
+      "light-snow": "lightSnow",
+      "heavy-snow": "heavySnow",
+      mist: "mist",
+      fog: "fog",
+      haze: "haze",
+    };
+
+    const translationKey = conditionMap[normalizedCondition];
+
+    if (translationKey) {
+      return t(`weather.sky.${translationKey}`);
+    }
+
+    return condition;
   };
 
   return { translateSkyCondition };

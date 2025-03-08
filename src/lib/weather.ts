@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format } from "date-fns";
 
 interface WeatherResponse {
   hourly: {
@@ -32,25 +32,25 @@ interface WeatherResponse {
 }
 
 export const MOON_PHASES = [
-  { value: 'new-moon', label: 'New Moon' },
-  { value: 'waxing-crescent', label: 'Waxing Crescent' },
-  { value: 'first-quarter', label: 'First Quarter' },
-  { value: 'waxing-gibbous', label: 'Waxing Gibbous' },
-  { value: 'full-moon', label: 'Full Moon' },
-  { value: 'waning-gibbous', label: 'Waning Gibbous' },
-  { value: 'last-quarter', label: 'Last Quarter' },
-  { value: 'waning-crescent', label: 'Waning Crescent' },
+  { value: "new-moon", label: "New Moon" },
+  { value: "waxing-crescent", label: "Waxing Crescent" },
+  { value: "first-quarter", label: "First Quarter" },
+  { value: "waxing-gibbous", label: "Waxing Gibbous" },
+  { value: "full-moon", label: "Full Moon" },
+  { value: "waning-gibbous", label: "Waning Gibbous" },
+  { value: "last-quarter", label: "Last Quarter" },
+  { value: "waning-crescent", label: "Waning Crescent" },
 ];
 
 export const getSkyCondition = (cloudCover: number) => {
-  if (cloudCover < 10) return 'clear';
-  if (cloudCover < 30) return 'partly-cloudy';
-  if (cloudCover < 70) return 'cloudy';
-  return 'overcast';
+  if (cloudCover < 10) return "clear";
+  if (cloudCover < 30) return "partly-cloudy";
+  if (cloudCover < 70) return "cloudy";
+  return "overcast";
 };
 
 export const getWindDirection = (degrees: number) => {
-  const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+  const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   const index = Math.round(degrees / 45) % 8;
   return directions[index];
 };
@@ -62,8 +62,13 @@ export const getMoonPhase = (date: Date) => {
   const day = date.getDate();
 
   // Calculating the Julian Date
-  const jd = (367 * year - Math.floor((7 * (year + Math.floor((month + 9) / 12))) / 4) + 
-             Math.floor((275 * month) / 9) + day - 730530) + 2451545.5;
+  const jd =
+    367 * year -
+    Math.floor((7 * (year + Math.floor((month + 9) / 12))) / 4) +
+    Math.floor((275 * month) / 9) +
+    day -
+    730530 +
+    2451545.5;
 
   // Calculate the approximate phase of the moon
   const ip = (jd - 2451550.1) / 29.530588853; // Lunar cycle
@@ -95,9 +100,17 @@ export const getMoonPhase = (date: Date) => {
   }
 };
 
-export async function getWeatherData(lat: number, lng: number, date: string, time: string) {
-  const formattedDate = format(new Date(`${date}T${time}`), "yyyy-MM-dd'T'HH:mm");
-  
+export async function getWeatherData(
+  lat: number,
+  lng: number,
+  date: string,
+  time: string
+) {
+  const formattedDate = format(
+    new Date(`${date}T${time}`),
+    "yyyy-MM-dd'T'HH:mm"
+  );
+
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&hourly=temperature_2m,relative_humidity_2m,precipitation,pressure_msl,cloud_cover,wind_speed_10m,wind_direction_10m,visibility&start_date=${date}&end_date=${date}`;
 
   try {
@@ -108,7 +121,9 @@ export async function getWeatherData(lat: number, lng: number, date: string, tim
     const hours = data.hourly.temperature_2m.length;
     const targetTime = new Date(formattedDate);
     const startTime = new Date(`${date}T00:00`);
-    const hourIndex = Math.floor((targetTime.getTime() - startTime.getTime()) / (1000 * 60 * 60));
+    const hourIndex = Math.floor(
+      (targetTime.getTime() - startTime.getTime()) / (1000 * 60 * 60)
+    );
 
     if (hourIndex >= 0 && hourIndex < hours) {
       return {
@@ -119,16 +134,18 @@ export async function getWeatherData(lat: number, lng: number, date: string, tim
         sky: getSkyCondition(data.hourly.cloud_cover[hourIndex]),
         wind: {
           speed: data.hourly.wind_speed_10m[hourIndex],
-          direction: getWindDirection(data.hourly.wind_direction_10m[hourIndex]),
+          direction: getWindDirection(
+            data.hourly.wind_direction_10m[hourIndex]
+          ),
         },
         visibility: data.hourly.visibility[hourIndex] / 1000, // Convert to km
         moonPhase: getMoonPhase(targetTime),
       };
     }
-    
-    throw new Error('No weather data available for the specified time');
+
+    throw new Error("No weather data available for the specified time");
   } catch (error) {
-    console.error('Error fetching weather data:', error);
+    console.error("Error fetching weather data:", error);
     throw error;
   }
 }
@@ -148,7 +165,8 @@ export async function getWeatherForecast(lat: number, lng: number) {
         maxTemp: data.daily.temperature_2m_max[index],
         minTemp: data.daily.temperature_2m_min[index],
         precipitation: data.daily.precipitation_sum[index],
-        precipitationProbability: data.daily.precipitation_probability_max[index],
+        precipitationProbability:
+          data.daily.precipitation_probability_max[index],
         moonPhase: getMoonPhase(date),
       };
     });
@@ -173,7 +191,7 @@ export async function getWeatherForecast(lat: number, lng: number) {
       daily: dailyForecast,
     };
   } catch (error) {
-    console.error('Error fetching weather forecast:', error);
+    console.error("Error fetching weather forecast:", error);
     throw error;
   }
 }

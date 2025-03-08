@@ -384,6 +384,16 @@
       "mist": "Névoa",
       "fog": "Neblina",
       "haze": "Nevoeiro"
+    },
+    "moonPhase": {
+      "newMoon": "Lua Nova",
+      "waxingCrescent": "Lua Crescente",
+      "firstQuarter": "Quarto Crescente",
+      "waxingGibbous": "Lua Gibosa Crescente",
+      "fullMoon": "Lua Cheia",
+      "waningGibbous": "Lua Gibosa Minguante",
+      "lastQuarter": "Quarto Minguante",
+      "waningCrescent": "Lua Minguante"
     }
   }
 }

@@ -1,10 +1,9 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Fish, MapPin, Trophy, Plus } from "lucide-react";
 import { useAuthStore } from "../store/authStore";
 import { useCatchesStore } from "../store/catchesStore";
-import { getWeatherForecast } from "../lib/weather";
 import { WeatherForecast } from "../components/WeatherForecast";
 import {
   StatsCard,
@@ -13,18 +12,14 @@ import {
   RecentCatches,
 } from "../components/dashboard";
 import { parseISO, isThisMonth, isThisYear } from "date-fns";
-
+import { LocationDto } from "../types/locations";
 export function Dashboard() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { user } = useAuthStore();
   const { catches, loadCatches } = useCatchesStore();
-  const [position, setPosition] = useState<{ lat: number; lng: number } | null>(
-    null
-  );
+  const [position, setPosition] = useState<LocationDto | null>(null);
   const [loadingLocation, setLoadingLocation] = useState(true);
-  const [weather, setWeather] = useState<any>(null);
-  const [loadingWeather, setLoadingWeather] = useState(true);
 
   useEffect(() => {
     if (user) {
@@ -39,20 +34,9 @@ export function Dashboard() {
           const pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
-          };
+          } as LocationDto;
           setPosition(pos);
           setLoadingLocation(false);
-
-          // Fetch weather data
-          getWeatherForecast(pos.lat, pos.lng)
-            .then((data) => {
-              setWeather(data);
-              setLoadingWeather(false);
-            })
-            .catch((error) => {
-              console.error("Error fetching weather:", error);
-              setLoadingWeather(false);
-            });
         },
         () => {
           setPosition({ lat: 40.7128, lng: -74.006 });
@@ -190,7 +174,7 @@ export function Dashboard() {
   return (
     <div className="space-y-6 relative pb-20">
       {/* Weather Forecast */}
-      <WeatherForecast weather={weather} loading={loadingWeather} />
+      <WeatherForecast position={position} />
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

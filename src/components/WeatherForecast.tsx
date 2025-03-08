@@ -12,45 +12,18 @@ import {
   CloudMoon,
   MapPin,
   Gauge,
+  AlertCircle,
 } from "lucide-react";
 import MyLocation from "./MyLocation";
 import { pt } from "date-fns/locale";
 import { enUS } from "date-fns/locale";
 import { useMoonPhase } from "../hooks/useMoonPhase";
 import { useSkyCondition } from "../hooks/useSkyCondition";
-
-interface WeatherData {
-  current: {
-    temperature: number;
-    humidity: number;
-    pressure: number;
-    precipitation: number;
-    sky: string;
-    wind: {
-      speed: number;
-      direction: string;
-    };
-    visibility: number;
-    moonPhase: string;
-  };
-  daily: Array<{
-    date: Date;
-    maxTemp: number;
-    minTemp: number;
-    precipitation: number;
-    precipitationProbability: number;
-    moonPhase: string;
-    pressure: number;
-  }>;
-}
+import { useWeather } from "../hooks/useWeather";
+import { LocationDto } from "../types/locations";
 
 interface WeatherForecastProps {
-  weather: WeatherData;
-  loading: boolean;
-  location?: {
-    lat: number;
-    lng: number;
-  };
+  position: LocationDto | null;
 }
 
 function getWeatherIcon(sky: string, isDay: boolean = true) {
@@ -67,14 +40,13 @@ function getWeatherIcon(sky: string, isDay: boolean = true) {
   }
 }
 
-export function WeatherForecast({
-  weather,
-  loading,
-  location,
-}: WeatherForecastProps) {
+export function WeatherForecast({ position }: WeatherForecastProps) {
   const { t, i18n } = useTranslation();
   const { translateMoonPhase } = useMoonPhase();
   const { translateSkyCondition } = useSkyCondition();
+  const { weather, loading, error } = useWeather({
+    position: position || { lat: 39.477037, lng: -8.24094 },
+  });
 
   const formatDay = (date: Date, lang: string) => {
     const locale = lang === "pt" ? pt : enUS;
@@ -95,6 +67,19 @@ export function WeatherForecast({
     );
   }
 
+  if (error) {
+    return (
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+        <div className="flex items-center justify-center text-red-500 dark:text-red-400">
+          <AlertCircle className="w-5 h-5 mr-2" />
+          <span>{t("common.error")}</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (!weather) return null;
+
   const WeatherIcon = getWeatherIcon(weather.current.sky);
 
   return (
@@ -107,7 +92,7 @@ export function WeatherForecast({
           <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
             <MapPin className="w-4 h-4 mr-1" />
             <span>
-              {location.lat.toFixed(4)}°, {location.lng.toFixed(4)}°
+              {position?.lat?.toFixed(4)}°, {position?.lng?.toFixed(4)}°
             </span>
           </div>
         )}
@@ -160,7 +145,7 @@ export function WeatherForecast({
 
       {/* Daily Forecast */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-        {weather.daily.slice(0, 7).map((day) => (
+        {weather?.daily?.map((day: any) => (
           <div
             key={day.date.toISOString()}
             className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 text-center"

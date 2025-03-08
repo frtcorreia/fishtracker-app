@@ -1,0 +1,360 @@
+{
+  "auth": {
+    "login": {
+      "title": "Entrar",
+      "username": "Nome de Usuário",
+      "password": "Senha",
+      "usernamePlaceholder": "Digite seu nome de usuário",
+      "passwordPlaceholder": "Digite sua senha",
+      "forgotPassword": "Esqueceu a senha?",
+      "loginButton": "ENTRAR",
+      "orSignUp": "Ou Cadastre-se Usando",
+      "noAccount": "Não tem uma conta?",
+      "signUpLink": "CADASTRAR",
+      "signInWithGoogle": "Entrar com Google",
+      "errors": {
+        "invalidCredentials": "Email ou senha inválidos",
+        "googleSignInFailed": "Falha ao entrar com Google"
+      }
+    },
+    "register": {
+      "title": "Criar Conta",
+      "email": "Email",
+      "password": "Senha",
+      "confirmPassword": "Confirmar Senha",
+      "emailPlaceholder": "Digite seu email",
+      "passwordPlaceholder": "Crie uma senha",
+      "confirmPasswordPlaceholder": "Confirme sua senha",
+      "createAccountButton": "CRIAR CONTA",
+      "orSignUp": "Ou Cadastre-se Usando",
+      "haveAccount": "Já tem uma conta?",
+      "loginLink": "ENTRAR",
+      "signUpWithGoogle": "Cadastrar com Google",
+      "errors": {
+        "passwordsDoNotMatch": "As senhas não coincidem",
+        "accountCreationFailed": "Falha ao criar conta",
+        "googleSignUpFailed": "Falha ao cadastrar com Google"
+      }
+    },
+    "resetPassword": {
+      "title": "Redefinir Senha",
+      "description": "Digite seu endereço de email e enviaremos um link para redefinir sua senha.",
+      "email": "Email",
+      "emailPlaceholder": "Digite seu endereço de email",
+      "submitButton": "Enviar Link de Redefinição",
+      "backToLogin": "Voltar para Login",
+      "success": "Verifique seu email para um link de redefinição de senha."
+    }
+  },
+  "common": {
+    "logout": "Sair",
+    "loading": "Carregando...",
+    "save": "Salvar",
+    "saving": "Salvando...",
+    "cancel": "Cancelar",
+    "update": "Atualizar",
+    "delete": "Excluir",
+    "confirmDelete": "Tem certeza que deseja excluir?",
+    "back": "Voltar",
+    "view": "Visualizar",
+    "edit": "Editar",
+    "search": "Pesquisar",
+    "noResults": "Nenhum resultado encontrado",
+    "required": "Obrigatório"
+  },
+  "layout": {
+    "menu": {
+      "dashboard": "Painel",
+      "catches": "Capturas",
+      "profile": "Perfil",
+      "settings": "Configurações"
+    },
+    "appName": "FishTracker"
+  },
+  "dashboard": {
+    "stats": {
+      "totalCatches": {
+        "title": "Total de Capturas",
+        "thisMonth": "{{count}} este mês"
+      },
+      "biggestCatch": {
+        "title": "Maior Captura",
+        "personalBest": "Recorde pessoal"
+      },
+      "thisYear": {
+        "title": "Este Ano",
+        "thisMonth": "{{count}} este mês"
+      },
+      "locations": {
+        "title": "Localizações",
+        "heavyCatches": "{{count}} capturas pesadas"
+      }
+    },
+    "activity": {
+      "title": "Visão Geral da Atividade",
+      "catches": "{{count}} capturas"
+    },
+    "map": {
+      "title": "Locais de Captura",
+      "details": {
+        "viewDetails": "Ver Detalhes"
+      }
+    },
+    "recentCatches": {
+      "title": "Capturas Recentes",
+      "empty": "Nenhuma captura ainda.",
+      "addFirst": "Adicione sua primeira captura!"
+    },
+    "weather": {
+      "title": "Previsão do Tempo",
+      "current": {
+        "temperature": "Temperatura",
+        "humidity": "Umidade",
+        "wind": "Vento",
+        "precipitation": "Precipitação",
+        "moonPhase": "Fase da Lua",
+        "conditions": {
+          "clear": "Limpo",
+          "partlyCloudy": "Parcialmente Nublado",
+          "cloudy": "Nublado",
+          "overcast": "Encoberto",
+          "rain": "Chuva",
+          "storm": "Tempestade"
+        }
+      },
+      "daily": {
+        "maxTemp": "Máxima",
+        "minTemp": "Mínima",
+        "precipitation": "Precipitação",
+        "probability": "Probabilidade"
+      },
+      "moonPhases": {
+        "newMoon": "Lua Nova",
+        "waxingCrescent": "Lua Crescente",
+        "firstQuarter": "Quarto Crescente",
+        "waxingGibbous": "Lua Gibosa Crescente",
+        "fullMoon": "Lua Cheia",
+        "waningGibbous": "Lua Gibosa Minguante",
+        "lastQuarter": "Quarto Minguante",
+        "waningCrescent": "Lua Minguante"
+      }
+    }
+  },
+  "catches": {
+    "form": {
+      "titleNew": "Adicionar Nova Captura",
+      "titleEdit": "Editar Captura",
+      "sections": {
+        "species": {
+          "title": "Espécie",
+          "label": "Selecionar Espécie",
+          "options": {
+            "bass": "Achigã",
+            "carp": "Carpa",
+            "barbel": "Barbo",
+            "pike": "Lúcio",
+            "zander": "Lúcio Perca",
+            "perch": "Perca Europeia"
+          }
+        },
+        "technique": {
+          "title": "Método de Pesca",
+          "technique": {
+            "label": "Técnica",
+            "placeholder": "Inserir técnica de pesca"
+          },
+          "bait": {
+            "label": "Isco",
+            "placeholder": "Inserir isco utilizado"
+          },
+          "depth": {
+            "label": "Profundidade (m)",
+            "placeholder": "Inserir profundidade de pesca"
+          },
+          "notes": {
+            "label": "Notas do Método",
+            "placeholder": "Adicione notas sobre o método de pesca..."
+          }
+        },
+        "photo": {
+          "title": "Foto",
+          "upload": "Carregar uma foto",
+          "dragDrop": "ou arraste e solte",
+          "formats": "PNG, JPG até 10MB"
+        },
+        "details": {
+          "title": "Detalhes",
+          "weight": "Peso (g)",
+          "length": "Comprimento (cm)"
+        },
+        "datetime": {
+          "title": "Data e Hora",
+          "date": "Data",
+          "time": "Hora"
+        },
+        "location": {
+          "title": "Localização",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "mapType": {
+            "street": "Rua",
+            "satellite": "Satélite"
+          }
+        },
+        "weather": {
+          "title": "Clima",
+          "loading": "Carregando dados meteorológicos...",
+          "temperature": "Temperatura",
+          "humidity": "Umidade",
+          "pressure": "Pressão",
+          "wind": "Vento",
+          "precipitation": "Precipitação",
+          "sky": "Céu",
+          "moonPhase": "Fase da Lua"
+        },
+        "observations": {
+          "title": "Observações",
+          "label": "Notas",
+          "placeholder": "Adicione observações adicionais sobre a captura..."
+        },
+        "visibility": {
+          "title": "Visibilidade",
+          "description": "Escolha quem pode ver esta captura",
+          "options": {
+            "private": "Privado",
+            "public": "Público"
+          }
+        }
+      },
+      "errors": {
+        "requiredFields": "Por favor, preencha todos os campos obrigatórios",
+        "saveFailed": "Falha ao salvar captura"
+      }
+    },
+    "list": {
+      "title": "Minhas Capturas",
+      "addNew": "Adicionar Captura",
+      "searchPlaceholder": "Pesquisar por espécie, peso, comprimento, data, técnica...",
+      "empty": "Nenhuma captura encontrada.",
+      "emptySearch": "Nenhuma captura encontrada para a sua pesquisa.",
+      "addFirst": "Comece adicionando sua primeira captura!",
+      "details": {
+        "species": "Espécie",
+        "weight": "Peso",
+        "length": "Comprimento",
+        "location": "Local",
+        "date": "Data",
+        "visibility": {
+          "public": "Público",
+          "private": "Privado"
+        }
+      },
+      "actions": {
+        "view": "Visualizar",
+        "edit": "Editar",
+        "delete": "Excluir",
+        "confirmDelete": "Tem certeza que deseja excluir esta captura?"
+      },
+      "pagination": {
+        "showing": "Mostrando",
+        "to": "até",
+        "of": "de",
+        "results": "resultados"
+      }
+    },
+    "view": {
+      "notFound": "Captura não encontrada",
+      "backToList": "Voltar para lista",
+      "details": {
+        "title": "Detalhes da Captura",
+        "species": "Espécie",
+        "weight": "Peso",
+        "length": "Comprimento",
+        "dateTime": "Data e Hora"
+      },
+      "location": {
+        "title": "Localização",
+        "coordinates": "Coordenadas"
+      },
+      "conditions": {
+        "title": "Condições",
+        "waterTemp": "Temperatura da Água",
+        "moonPhase": "Fase da Lua",
+        "weather": {
+          "title": "Condições Meteorológicas",
+          "temperature": "Temperatura",
+          "humidity": "Umidade",
+          "pressure": "Pressão",
+          "wind": "Vento",
+          "precipitation": "Precipitação",
+          "sky": "Condições do Céu",
+          "visibility": "Visibilidade"
+        }
+      }
+    }
+  },
+  "profile": {
+    "title": "Editar Perfil",
+    "photo": {
+      "title": "Foto do Perfil",
+      "change": "Alterar foto",
+      "upload": "Carregar uma foto",
+      "dragDrop": "ou arraste e solte",
+      "formats": "PNG, JPG até 10MB"
+    },
+    "basicInfo": {
+      "title": "Informações Básicas",
+      "displayName": {
+        "label": "Nome de Exibição",
+        "placeholder": "Digite seu nome de exibição"
+      },
+      "email": {
+        "label": "Email",
+        "cannotChange": "O email não pode ser alterado"
+      },
+      "bio": {
+        "label": "Biografia",
+        "placeholder": "Conte-nos sobre você..."
+      },
+      "location": {
+        "label": "Localização",
+        "placeholder": "Cidade, País"
+      }
+    },
+    "favoriteSpecies": {
+      "title": "Espécies Favoritas",
+      "description": "Selecione suas espécies de peixe favoritas"
+    },
+    "buttons": {
+      "saveChanges": "Salvar Alterações",
+      "saving": "Salvando..."
+    }
+  },
+  "roadmap": {
+    "welcome": "Bem-vindo ao FishTracker",
+    "description": "Estamos constantemente trabalhando para melhorar sua experiência de pesca. Aqui está o que estamos construindo e o que vem por aí.",
+    "whatNext": {
+      "title": "O que vem por aí?",
+      "description": "Estamos trabalhando duro para trazer mais funcionalidades. Fique atento para atualizações e novos lançamentos!"
+    },
+    "sections": {
+      "current": "Funcionalidades Atuais",
+      "upcoming": "Em Breve",
+      "planned": "Planos Futuros"
+    },
+    "features": {
+      "catchTracking": "Registro de Capturas",
+      "weatherIntegration": "Integração com Clima",
+      "locationMapping": "Mapeamento de Localização",
+      "basicAnalytics": "Análises Básicas",
+      "socialFeatures": "Recursos Sociais",
+      "advancedAnalytics": "Análises Avançadas",
+      "mobileApp": "Aplicativo Móvel",
+      "tackleBox": "Gerenciamento de Equipamentos",
+      "aiRecognition": "Reconhecimento de Peixes por IA",
+      "tournament": "Integração com Torneios",
+      "marketplace": "Marketplace de Pontos de Pesca",
+      "proFeatures": "Recursos Pro"
+    }
+  }
+}

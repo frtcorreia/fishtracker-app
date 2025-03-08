@@ -1,0 +1,345 @@
+{
+  "auth": {
+    "login": {
+      "title": "Login",
+      "username": "Username",
+      "password": "Password",
+      "usernamePlaceholder": "Type your username",
+      "passwordPlaceholder": "Type your password",
+      "forgotPassword": "Forgot password?",
+      "loginButton": "LOGIN",
+      "orSignUp": "Or Sign Up Using",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "SIGN UP",
+      "signInWithGoogle": "Sign in with Google",
+      "errors": {
+        "invalidCredentials": "Invalid email or password",
+        "googleSignInFailed": "Failed to sign in with Google"
+      }
+    },
+    "register": {
+      "title": "Create Account",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "emailPlaceholder": "Enter your email",
+      "passwordPlaceholder": "Create a password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "createAccountButton": "CREATE ACCOUNT",
+      "orSignUp": "Or Sign Up Using",
+      "haveAccount": "Already have an account?",
+      "loginLink": "LOGIN",
+      "signUpWithGoogle": "Sign up with Google",
+      "errors": {
+        "passwordsDoNotMatch": "Passwords do not match",
+        "accountCreationFailed": "Failed to create account",
+        "googleSignUpFailed": "Failed to sign up with Google"
+      }
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "description": "Enter your email address and we'll send you a link to reset your password.",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "submitButton": "Send Reset Link",
+      "backToLogin": "Back to Login",
+      "success": "Check your email for a link to reset your password."
+    }
+  },
+  "common": {
+    "logout": "Logout",
+    "loading": "Loading...",
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "update": "Update",
+    "delete": "Delete",
+    "confirmDelete": "Are you sure you want to delete this?",
+    "back": "Back",
+    "view": "View",
+    "edit": "Edit",
+    "search": "Search",
+    "noResults": "No results found",
+    "required": "Required"
+  },
+  "layout": {
+    "menu": {
+      "dashboard": "Dashboard",
+      "catches": "Catches",
+      "profile": "Profile",
+      "settings": "Settings"
+    },
+    "appName": "FishTracker"
+  },
+  "dashboard": {
+    "stats": {
+      "totalCatches": {
+        "title": "Total Catches",
+        "thisMonth": "{{count}} this month"
+      },
+      "biggestCatch": {
+        "title": "Biggest Catch",
+        "personalBest": "Personal best"
+      },
+      "thisYear": {
+        "title": "This Year",
+        "thisMonth": "{{count}} this month"
+      },
+      "locations": {
+        "title": "Locations",
+        "heavyCatches": "{{count}} heavy catches"
+      }
+    },
+    "activity": {
+      "title": "Activity Overview",
+      "catches": "{{count}} catches"
+    },
+    "map": {
+      "title": "Catch Locations",
+      "details": {
+        "viewDetails": "View Details"
+      }
+    },
+    "recentCatches": {
+      "title": "Recent Catches",
+      "empty": "No catches yet.",
+      "addFirst": "Add your first catch!"
+    },
+    "weather": {
+      "title": "Weather Forecast",
+      "current": {
+        "temperature": "Temperature",
+        "humidity": "Humidity",
+        "wind": "Wind",
+        "precipitation": "Precipitation",
+        "moonPhase": "Moon Phase",
+        "conditions": {
+          "clear": "Clear",
+          "partlyCloudy": "Partly Cloudy",
+          "cloudy": "Cloudy",
+          "overcast": "Overcast",
+          "rain": "Rain",
+          "storm": "Storm"
+        }
+      }
+    }
+  },
+  "catches": {
+    "form": {
+      "titleNew": "Add New Catch",
+      "titleEdit": "Edit Catch",
+      "sections": {
+        "species": {
+          "title": "Species",
+          "label": "Select Species",
+          "options": {
+            "bass": "Bass",
+            "carp": "Carp",
+            "barbel": "Barbel",
+            "pike": "Pike",
+            "zander": "Zander",
+            "perch": "European Perch"
+          }
+        },
+        "technique": {
+          "title": "Fishing Method",
+          "technique": {
+            "label": "Technique",
+            "placeholder": "Enter fishing technique"
+          },
+          "bait": {
+            "label": "Bait",
+            "placeholder": "Enter bait used"
+          },
+          "depth": {
+            "label": "Depth (m)",
+            "placeholder": "Enter fishing depth"
+          },
+          "notes": {
+            "label": "Method Notes",
+            "placeholder": "Add any notes about the fishing method..."
+          }
+        },
+        "photo": {
+          "title": "Photo",
+          "upload": "Upload a photo",
+          "dragDrop": "or drag and drop",
+          "formats": "PNG, JPG up to 10MB"
+        },
+        "details": {
+          "title": "Details",
+          "weight": "Weight (g)",
+          "length": "Length (cm)"
+        },
+        "datetime": {
+          "title": "Date and Time",
+          "date": "Date",
+          "time": "Time"
+        },
+        "location": {
+          "title": "Location",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "mapType": {
+            "street": "Street",
+            "satellite": "Satellite"
+          }
+        },
+        "weather": {
+          "title": "Weather",
+          "loading": "Loading weather data...",
+          "temperature": "Temperature",
+          "humidity": "Humidity",
+          "pressure": "Pressure",
+          "wind": "Wind",
+          "precipitation": "Precipitation",
+          "sky": "Sky",
+          "moonPhase": "Moon Phase"
+        },
+        "observations": {
+          "title": "Observations",
+          "label": "Notes",
+          "placeholder": "Add any additional observations about the catch..."
+        },
+        "visibility": {
+          "title": "Visibility",
+          "description": "Choose who can see this catch",
+          "options": {
+            "private": "Private",
+            "public": "Public"
+          }
+        }
+      },
+      "errors": {
+        "requiredFields": "Please fill in all required fields",
+        "saveFailed": "Failed to save catch"
+      }
+    },
+    "list": {
+      "title": "My Catches",
+      "addNew": "Add Catch",
+      "searchPlaceholder": "Search by species, weight, length, date, technique...",
+      "empty": "No catches found.",
+      "emptySearch": "No catches found for your search.",
+      "addFirst": "Start by adding your first catch!",
+      "details": {
+        "species": "Species",
+        "weight": "Weight",
+        "length": "Length",
+        "location": "Location",
+        "date": "Date",
+        "visibility": {
+          "public": "Public",
+          "private": "Private"
+        }
+      },
+      "actions": {
+        "view": "View",
+        "edit": "Edit",
+        "delete": "Delete",
+        "confirmDelete": "Are you sure you want to delete this catch?"
+      },
+      "pagination": {
+        "showing": "Showing",
+        "to": "to",
+        "of": "of",
+        "results": "results"
+      }
+    },
+    "view": {
+      "notFound": "Catch not found",
+      "backToList": "Back to list",
+      "details": {
+        "title": "Catch Details",
+        "species": "Species",
+        "weight": "Weight",
+        "length": "Length",
+        "dateTime": "Date and Time",
+        "notes": "Notes"
+      },
+      "location": {
+        "title": "Location",
+        "coordinates": "Coordinates"
+      },
+      "conditions": {
+        "title": "Conditions",
+        "waterTemp": "Water Temperature",
+        "moonPhase": "Moon Phase",
+        "weather": {
+          "title": "Weather Conditions",
+          "temperature": "Temperature",
+          "humidity": "Humidity",
+          "pressure": "Pressure",
+          "wind": "Wind",
+          "precipitation": "Precipitation",
+          "sky": "Sky Conditions",
+          "visibility": "Visibility"
+        }
+      }
+    }
+  },
+  "profile": {
+    "title": "Edit Profile",
+    "photo": {
+      "title": "Profile Photo",
+      "change": "Change photo",
+      "upload": "Upload a photo",
+      "dragDrop": "or drag and drop",
+      "formats": "PNG, JPG up to 10MB"
+    },
+    "basicInfo": {
+      "title": "Basic Information",
+      "displayName": {
+        "label": "Display Name",
+        "placeholder": "Enter your display name"
+      },
+      "email": {
+        "label": "Email",
+        "cannotChange": "Email cannot be changed"
+      },
+      "bio": {
+        "label": "Bio",
+        "placeholder": "Tell us about yourself..."
+      },
+      "location": {
+        "label": "Location",
+        "placeholder": "City, Country"
+      }
+    },
+    "favoriteSpecies": {
+      "title": "Favorite Species",
+      "description": "Select your favorite fish species"
+    },
+    "buttons": {
+      "saveChanges": "Save Changes",
+      "saving": "Saving..."
+    }
+  },
+  "roadmap": {
+    "welcome": "Welcome to FishTracker",
+    "description": "We're constantly working to improve your fishing experience. Here's what we're building and what's coming next.",
+    "whatNext": {
+      "title": "What's Next?",
+      "description": "We're working hard to bring you more features. Stay tuned for updates and new releases!"
+    },
+    "sections": {
+      "current": "Current Features",
+      "upcoming": "Coming Soon",
+      "planned": "Future Plans"
+    },
+    "features": {
+      "catchTracking": "Catch Tracking",
+      "weatherIntegration": "Weather Integration",
+      "locationMapping": "Location Mapping",
+      "basicAnalytics": "Basic Analytics",
+      "socialFeatures": "Social Features",
+      "advancedAnalytics": "Advanced Analytics",
+      "mobileApp": "Mobile App",
+      "tackleBox": "Tackle Box Management",
+      "aiRecognition": "AI Fish Recognition",
+      "tournament": "Tournament Integration",
+      "marketplace": "Fishing Spots Marketplace",
+      "proFeatures": "Pro Features"
+    }
+  }
+}

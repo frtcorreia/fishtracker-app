@@ -1,0 +1,52 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Catches collection
+    match /catches/{catchId} {
+      allow read: {
+        return isAuthenticated() && (
+          resource.data.userId == request.auth.uid || 
+          resource.data.visibility == 'public'
+        );
+      }
+      allow create: {
+        return isAuthenticated() && 
+               request.resource.data.userId == request.auth.uid;
+      }
+      allow update, delete: {
+        return isAuthenticated() && 
+               resource.data.userId == request.auth.uid;
+      }
+    }
+
+    // Profiles collection
+    match /profiles/{userId} {
+      allow read: {
+        return isAuthenticated() && (
+          isOwner(userId) ||
+          (resource.data.visibility == 'public')
+        );
+      }
+      allow write: {
+        return isOwner(userId);
+      }
+    }
+
+    // Settings collection
+    match /settings/{userId} {
+      allow read, write: {
+        return isOwner(userId);
+      }
+    }
+  }
+}

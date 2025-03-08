@@ -11,11 +11,23 @@ import {
 import { useAuthStore } from "../store/authStore";
 import { ThemeSwitcher } from "../components/ThemeSwitcher";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
+import { useProfileStore } from "../store/profileStore";
+import { useEffect } from "react";
 
 export function Roadmap() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { signOut } = useAuthStore();
+  const { signOut, user } = useAuthStore();
+  const { profile } = useProfileStore();
+
+  const isAuthenticated = !!user;
+  const isApproved = profile?.status === "approved";
+
+  useEffect(() => {
+    if (!isAuthenticated && !!isApproved) {
+      navigate("/");
+    }
+  }, [isAuthenticated, isApproved, navigate]);
 
   const handleSignOut = async () => {
     try {

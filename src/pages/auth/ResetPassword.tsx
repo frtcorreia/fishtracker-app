@@ -1,17 +1,26 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../lib/firebase";
 import { Fish, Mail } from "lucide-react";
 import { ThemeSwitcher } from "../../components/ThemeSwitcher";
 import { LanguageSwitcher } from "../../components/LanguageSwitcher";
+import { useAuthStore } from "../../store/authStore";
 
 export function ResetPassword() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { user } = useAuthStore();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard");
+    }
+  }, [user, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -60,7 +60,21 @@
     "edit": "Editar",
     "search": "Pesquisar",
     "noResults": "Nenhum resultado encontrado",
-    "required": "Obrigatório"
+    "required": "Obrigatório",
+    "months": {
+      "jan": "Jan",
+      "feb": "Fev",
+      "mar": "Mar",
+      "apr": "Abr",
+      "may": "Mai",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Ago",
+      "sep": "Set",
+      "oct": "Out",
+      "nov": "Nov",
+      "dec": "Dez"
+    }
   },
   "layout": {
     "menu": {
@@ -352,6 +366,24 @@
       "tackleBox": "Gestao de Equipamentos",
       "aiRecognition": "Reconhecimento de Peixes por IA",
       "tournament": "Integração com Torneios"
+    }
+  },
+  "weather": {
+    "sky": {
+      "clear": "Céu Limpo",
+      "partlyCloudy": "Parcialmente Nublado",
+      "cloudy": "Nublado",
+      "overcast": "Encoberto",
+      "rain": "Chuva",
+      "lightRain": "Chuva Fraca",
+      "heavyRain": "Chuva Forte",
+      "thunderstorm": "Tempestade",
+      "snow": "Neve",
+      "lightSnow": "Neve Fraca",
+      "heavySnow": "Neve Forte",
+      "mist": "Névoa",
+      "fog": "Neblina",
+      "haze": "Nevoeiro"
     }
   }
 }

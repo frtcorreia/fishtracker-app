@@ -1,20 +1,23 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { format } from 'date-fns';
-import { 
-  Cloud, 
-  Droplets, 
-  Moon, 
-  Sun, 
-  Thermometer, 
+import { useTranslation } from "react-i18next";
+import { format } from "date-fns";
+import {
+  Cloud,
+  Droplets,
+  Moon,
+  Sun,
+  Thermometer,
   Wind,
   CloudRain,
   CloudSun,
   CloudMoon,
   MapPin,
-  Gauge
-} from 'lucide-react';
-import MyLocation from './MyLocation'
+  Gauge,
+} from "lucide-react";
+import MyLocation from "./MyLocation";
+import { pt } from "date-fns/locale";
+import { enUS } from "date-fns/locale";
+import { useMoonPhase } from "../hooks/useMoonPhase";
+import { useSkyCondition } from "../hooks/useSkyCondition";
 
 interface WeatherData {
   current: {
@@ -52,20 +55,31 @@ interface WeatherForecastProps {
 
 function getWeatherIcon(sky: string, isDay: boolean = true) {
   switch (sky) {
-    case 'clear':
+    case "clear":
       return isDay ? Sun : Moon;
-    case 'partly-cloudy':
+    case "partly-cloudy":
       return isDay ? CloudSun : CloudMoon;
-    case 'cloudy':
-    case 'overcast':
+    case "cloudy":
+    case "overcast":
       return Cloud;
     default:
       return CloudRain;
   }
 }
 
-export function WeatherForecast({ weather, loading, location }: WeatherForecastProps) {
-  const { t } = useTranslation();
+export function WeatherForecast({
+  weather,
+  loading,
+  location,
+}: WeatherForecastProps) {
+  const { t, i18n } = useTranslation();
+  const { translateMoonPhase } = useMoonPhase();
+  const { translateSkyCondition } = useSkyCondition();
+
+  const formatDay = (date: Date, lang: string) => {
+    const locale = lang === "pt" ? pt : enUS;
+    return format(date, "EEE", { locale });
+  };
 
   if (loading) {
     return (
@@ -87,12 +101,14 @@ export function WeatherForecast({ weather, loading, location }: WeatherForecastP
     <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-          {t('dashboard.weather.title')}
+          {t("dashboard.weather.title")}
         </h2>
         {location && (
           <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
             <MapPin className="w-4 h-4 mr-1" />
-            <span>{location.lat.toFixed(4)}°, {location.lng.toFixed(4)}°</span>
+            <span>
+              {location.lat.toFixed(4)}°, {location.lng.toFixed(4)}°
+            </span>
           </div>
         )}
       </div>
@@ -108,7 +124,7 @@ export function WeatherForecast({ weather, loading, location }: WeatherForecastP
               {Math.round(weather.current.temperature)}°C
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              {weather.current.sky}
+              {translateSkyCondition(weather.current.sky)}
             </p>
             <MyLocation />
           </div>
@@ -150,24 +166,24 @@ export function WeatherForecast({ weather, loading, location }: WeatherForecastP
             className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 text-center"
           >
             <p className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
-              {format(day.date, 'EEE')}
+              {formatDay(day.date, i18n.language)}
             </p>
             <div className="flex items-center justify-center mb-2">
               <Thermometer className="w-4 h-4 text-gray-500 dark:text-gray-400" />
               <span className="text-sm font-medium text-gray-900 dark:text-white ml-1">
                 {Math.round(day.maxTemp)}° / {Math.round(day.minTemp)}°
               </span>
-            </div> 
+            </div>
             <div className="flex items-center justify-center">
               <CloudRain className="w-4 h-4 text-gray-500 dark:text-gray-400" />
               <span className="text-xs text-gray-600 dark:text-gray-300 ml-1">
                 {Math.round(day.precipitationProbability)}%
               </span>
-            </div> 
+            </div>
             <div className="flex items-center justify-center mt-2">
               <Moon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
               <span className="text-xs text-gray-600 dark:text-gray-300 ml-1">
-                {day.moonPhase.split(' ')[0]}
+                {translateMoonPhase(day.moonPhase)}
               </span>
             </div>
           </div>

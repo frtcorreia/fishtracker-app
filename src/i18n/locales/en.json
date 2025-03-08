@@ -60,7 +60,21 @@
     "edit": "Edit",
     "search": "Search",
     "noResults": "No results found",
-    "required": "Required"
+    "required": "Required",
+    "months": {
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    }
   },
   "layout": {
     "menu": {

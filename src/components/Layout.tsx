@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Menu, X, Home, Fish, User, Settings } from "lucide-react";
+import { Menu, Fish, Home, Fish as FishIcon, User } from "lucide-react";
 import { useAuthStore } from "../store/authStore";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
-export function Layout() {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+export function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
   const { user, signOut } = useAuthStore();
@@ -14,40 +18,9 @@ export function Layout() {
 
   const navItems = [
     { path: "/", icon: Home, label: t("layout.menu.dashboard") },
-    { path: "/catches", icon: Fish, label: t("layout.menu.catches") },
+    { path: "/catches", icon: FishIcon, label: t("layout.menu.catches") },
     { path: "/profile", icon: User, label: t("layout.menu.profile") },
   ];
-
-  // Check if we're on an auth page
-  const isAuthPage = [
-    "/auth/signin",
-    "/auth/signup",
-    "/auth/reset-password",
-  ].includes(location.pathname);
-
-  if (isAuthPage) {
-    return (
-      <div className="min-h-screen">
-        <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between h-16">
-              <Link to="/" className="flex items-center">
-                <Fish className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                <span className="ml-2 text-xl font-bold text-gray-900 dark:text-white">
-                  {t("layout.appName")}
-                </span>
-              </Link>
-              <div className="flex items-center space-x-4">
-                <LanguageSwitcher />
-                <ThemeSwitcher />
-              </div>
-            </div>
-          </div>
-        </header>
-        <Outlet />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen">
@@ -56,7 +29,7 @@ export function Layout() {
         <aside
           className={`fixed md:static inset-y-0 left-0 z-50 w-64 transform ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-          } transition-transform duration-300 bg-white dark:bg-gray-800 border-r border-gray-200  dark:border-gray-700`}
+          } transition-transform duration-300 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700`}
         >
           <div className="p-4 flex items-center gap-1">
             <Fish className="w-8 h-8 text-blue-600 dark:text-blue-400" />
@@ -128,7 +101,7 @@ export function Layout() {
 
           {/* Main content area */}
           <main className="flex-1 overflow-y-auto bg-gray-50 dark:bg-gray-900 p-6">
-            <Outlet />
+            {children}
           </main>
         </div>
       </div>

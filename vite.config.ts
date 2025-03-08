@@ -8,11 +8,7 @@ export default defineConfig({
     exclude: ["lucide-react"],
   },
   server: {
-    proxy: {},
     middlewareMode: true,
-    fs: {
-      strict: false,
-    },
   },
   build: {
     outDir: "dist",

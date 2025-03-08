@@ -2,15 +2,15 @@
   "auth": {
     "login": {
       "title": "Entrar",
-      "username": "Nome de Usuário",
+      "username": "Nome de utilizadore",
       "password": "Senha",
-      "usernamePlaceholder": "Digite seu nome de usuário",
-      "passwordPlaceholder": "Digite sua senha",
+      "usernamePlaceholder": "Digite seu nome de utilizador",
+      "passwordPlaceholder": "Digite a sua senha",
       "forgotPassword": "Esqueceu a senha?",
       "loginButton": "ENTRAR",
-      "orSignUp": "Ou Cadastre-se Usando",
+      "orSignUp": "Ou Registar-se Usando",
       "noAccount": "Não tem uma conta?",
-      "signUpLink": "CADASTRAR",
+      "signUpLink": "REGISTAR",
       "signInWithGoogle": "Entrar com Google",
       "errors": {
         "invalidCredentials": "Email ou senha inválidos",
@@ -24,26 +24,26 @@
       "confirmPassword": "Confirmar Senha",
       "emailPlaceholder": "Digite seu email",
       "passwordPlaceholder": "Crie uma senha",
-      "confirmPasswordPlaceholder": "Confirme sua senha",
+      "confirmPasswordPlaceholder": "Confirme a sua senha",
       "createAccountButton": "CRIAR CONTA",
-      "orSignUp": "Ou Cadastre-se Usando",
+      "orSignUp": "Ou Registar-se Usando",
       "haveAccount": "Já tem uma conta?",
       "loginLink": "ENTRAR",
-      "signUpWithGoogle": "Cadastrar com Google",
+      "signUpWithGoogle": "Registar com Google",
       "errors": {
         "passwordsDoNotMatch": "As senhas não coincidem",
         "accountCreationFailed": "Falha ao criar conta",
-        "googleSignUpFailed": "Falha ao cadastrar com Google"
+        "googleSignUpFailed": "Falha ao registar-se com Google"
       }
     },
     "resetPassword": {
       "title": "Redefinir Senha",
-      "description": "Digite seu endereço de email e enviaremos um link para redefinir sua senha.",
+      "description": "Digite o seu endereço de email e enviaremos um link para redefinir a sua senha.",
       "email": "Email",
-      "emailPlaceholder": "Digite seu endereço de email",
+      "emailPlaceholder": "Digite o seu endereço de email",
       "submitButton": "Enviar Link de Redefinição",
-      "backToLogin": "Voltar para Login",
-      "success": "Verifique seu email para um link de redefinição de senha."
+      "backToLogin": "Voltar para o Login",
+      "success": "Verifique o seu email para um link de redefinição de senha."
     }
   },
   "common": {
@@ -66,8 +66,7 @@
     "menu": {
       "dashboard": "Painel",
       "catches": "Capturas",
-      "profile": "Perfil",
-      "settings": "Configurações"
+      "profile": "Perfil"
     },
     "appName": "FishTracker"
   },
@@ -109,7 +108,7 @@
       "title": "Previsão do Tempo",
       "current": {
         "temperature": "Temperatura",
-        "humidity": "Umidade",
+        "humidity": "Humidade",
         "wind": "Vento",
         "precipitation": "Precipitação",
         "moonPhase": "Fase da Lua",
@@ -172,8 +171,8 @@
             "placeholder": "Inserir profundidade de pesca"
           },
           "notes": {
-            "label": "Notas do Método",
-            "placeholder": "Adicione notas sobre o método de pesca..."
+            "label": "Notas",
+            "placeholder": "Adicione notas..."
           }
         },
         "photo": {
@@ -203,9 +202,9 @@
         },
         "weather": {
           "title": "Clima",
-          "loading": "Carregando dados meteorológicos...",
+          "loading": "A Carregar dados meteorológicos...",
           "temperature": "Temperatura",
-          "humidity": "Umidade",
+          "humidity": "Humidade",
           "pressure": "Pressão",
           "wind": "Vento",
           "precipitation": "Precipitação",
@@ -256,7 +255,7 @@
         "confirmDelete": "Tem certeza que deseja excluir esta captura?"
       },
       "pagination": {
-        "showing": "Mostrando",
+        "showing": "De",
         "to": "até",
         "of": "de",
         "results": "resultados"
@@ -283,7 +282,7 @@
         "weather": {
           "title": "Condições Meteorológicas",
           "temperature": "Temperatura",
-          "humidity": "Umidade",
+          "humidity": "Humidade",
           "pressure": "Pressão",
           "wind": "Vento",
           "precipitation": "Precipitação",
@@ -305,8 +304,8 @@
     "basicInfo": {
       "title": "Informações Básicas",
       "displayName": {
-        "label": "Nome de Exibição",
-        "placeholder": "Digite seu nome de exibição"
+        "label": "Nome",
+        "placeholder": "Digite o seu nome"
       },
       "email": {
         "label": "Email",
@@ -323,7 +322,7 @@
     },
     "favoriteSpecies": {
       "title": "Espécies Favoritas",
-      "description": "Selecione suas espécies de peixe favoritas"
+      "description": "Selecione as suas espécies favoritas"
     },
     "buttons": {
       "saveChanges": "Salvar Alterações",
@@ -332,10 +331,10 @@
   },
   "roadmap": {
     "welcome": "Bem-vindo ao FishTracker",
-    "description": "Estamos constantemente trabalhando para melhorar sua experiência de pesca. Aqui está o que estamos construindo e o que vem por aí.",
+    "description": "Estamos constantemente a trabalhar para melhorar a sua experiência de pesca. Aqui está o que estamos a construir e o que vem por aí...",
     "whatNext": {
       "title": "O que vem por aí?",
-      "description": "Estamos trabalhando duro para trazer mais funcionalidades. Fique atento para atualizações e novos lançamentos!"
+      "description": "Estamos a trabalhar no duro para trazer mais funcionalidades. Fica atento para atualizações e novos lançamentos!"
     },
     "sections": {
       "current": "Funcionalidades Atuais",
@@ -350,11 +349,9 @@
       "socialFeatures": "Recursos Sociais",
       "advancedAnalytics": "Análises Avançadas",
       "mobileApp": "Aplicativo Móvel",
-      "tackleBox": "Gerenciamento de Equipamentos",
+      "tackleBox": "Gestao de Equipamentos",
       "aiRecognition": "Reconhecimento de Peixes por IA",
-      "tournament": "Integração com Torneios",
-      "marketplace": "Marketplace de Pontos de Pesca",
-      "proFeatures": "Recursos Pro"
+      "tournament": "Integração com Torneios"
     }
   }
 }

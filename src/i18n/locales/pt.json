@@ -2,9 +2,9 @@
   "auth": {
     "login": {
       "title": "Entrar",
-      "username": "Nome de utilizadore",
+      "username": "Nome de utilizador",
       "password": "Senha",
-      "usernamePlaceholder": "Digite seu nome de utilizador",
+      "usernamePlaceholder": "Digite o seu nome de utilizador",
       "passwordPlaceholder": "Digite a sua senha",
       "forgotPassword": "Esqueceu a senha?",
       "loginButton": "ENTRAR",

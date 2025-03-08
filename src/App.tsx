@@ -11,7 +11,6 @@ import { CatchesList } from "./pages/catches/CatchesList";
 import { CatchForm } from "./pages/catches/CatchForm";
 import { CatchView } from "./pages/catches/CatchView";
 import { Profile } from "./pages/Profile";
-import { Settings } from "./pages/Settings";
 import { Roadmap } from "./pages/Roadmap";
 import { useProfileStore } from "./store/profileStore";
 
@@ -40,7 +39,7 @@ function App() {
           element={user ? <Navigate to="/" /> : <Login />}
         />
         <Route
-          path="/auth/signin"
+          path="/auth/signup"
           element={user ? <Navigate to="/" /> : <Register />}
         />
         <Route

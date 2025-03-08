@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { useAuthStore } from '../../store/authStore';
-import { useProfileStore } from '../../store/profileStore';
-import { User, Lock, Mail, Fish } from 'lucide-react';
-import { ThemeSwitcher } from '../../components/ThemeSwitcher';
-import { LanguageSwitcher } from '../../components/LanguageSwitcher';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useAuthStore } from "../../store/authStore";
+import { useProfileStore } from "../../store/profileStore";
+import { Lock, Mail, Fish } from "lucide-react";
+import { ThemeSwitcher } from "../../components/ThemeSwitcher";
+import { LanguageSwitcher } from "../../components/LanguageSwitcher";
 
 export function Register() {
   const { t } = useTranslation();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const { signUp, signInWithGoogle } = useAuthStore();
   const { createProfile } = useProfileStore();
@@ -20,20 +20,20 @@ export function Register() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setError(t('auth.register.errors.passwordsDoNotMatch'));
+      setError(t("auth.register.errors.passwordsDoNotMatch"));
       return;
     }
     try {
       const userCredential = await signUp(email, password);
       if (userCredential.user) {
         await createProfile(userCredential.user.uid, {
-          email: userCredential.user.email || '',
-          displayName: userCredential.user.displayName || '',
+          email: userCredential.user.email || "",
+          displayName: userCredential.user.displayName || "",
         });
       }
-      navigate('/roadmap');
+      navigate("/roadmap");
     } catch (err: any) {
-      setError(t('auth.register.errors.accountCreationFailed'));
+      setError(t("auth.register.errors.accountCreationFailed"));
     }
   };
 
@@ -42,13 +42,13 @@ export function Register() {
       const userCredential = await signInWithGoogle();
       if (userCredential.user) {
         await createProfile(userCredential.user.uid, {
-          email: userCredential.user.email || '',
-          displayName: userCredential.user.displayName || '',
+          email: userCredential.user.email || "",
+          displayName: userCredential.user.displayName || "",
         });
       }
-      navigate('/roadmap');
+      navigate("/roadmap");
     } catch (err) {
-      setError(t('auth.register.errors.googleSignUpFailed'));
+      setError(t("auth.register.errors.googleSignUpFailed"));
     }
   };
 
@@ -64,7 +64,7 @@ export function Register() {
                 FishTracker
               </span>
             </div>
-            
+
             <div className="flex items-center space-x-4">
               <LanguageSwitcher />
               <ThemeSwitcher />
@@ -78,7 +78,7 @@ export function Register() {
         <div className="max-w-md mx-auto">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
             <h2 className="text-3xl font-bold text-center text-primary dark:text-white mb-8">
-              {t('auth.register.title')}
+              {t("auth.register.title")}
             </h2>
 
             {error && (
@@ -90,7 +90,7 @@ export function Register() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-primary dark:text-gray-200 mb-2">
-                  {t('auth.register.email')}
+                  {t("auth.register.email")}
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -100,7 +100,7 @@ export function Register() {
                     type="email"
                     required
                     className="block w-full pl-10 pr-3 py-2 border-0 border-b-2 border-secondary dark:border-gray-600 text-primary dark:text-white placeholder-primary/50 dark:placeholder-gray-400 bg-transparent focus:ring-0 focus:border-primary-light dark:focus:border-gray-400 transition-colors"
-                    placeholder={t('auth.register.emailPlaceholder')}
+                    placeholder={t("auth.register.emailPlaceholder")}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -109,7 +109,7 @@ export function Register() {
 
               <div>
                 <label className="block text-sm font-medium text-primary dark:text-gray-200 mb-2">
-                  {t('auth.register.password')}
+                  {t("auth.register.password")}
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -119,7 +119,7 @@ export function Register() {
                     type="password"
                     required
                     className="block w-full pl-10 pr-3 py-2 border-0 border-b-2 border-secondary dark:border-gray-600 text-primary dark:text-white placeholder-primary/50 dark:placeholder-gray-400 bg-transparent focus:ring-0 focus:border-primary-light dark:focus:border-gray-400 transition-colors"
-                    placeholder={t('auth.register.passwordPlaceholder')}
+                    placeholder={t("auth.register.passwordPlaceholder")}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
@@ -128,7 +128,7 @@ export function Register() {
 
               <div>
                 <label className="block text-sm font-medium text-primary dark:text-gray-200 mb-2">
-                  {t('auth.register.confirmPassword')}
+                  {t("auth.register.confirmPassword")}
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -138,7 +138,7 @@ export function Register() {
                     type="password"
                     required
                     className="block w-full pl-10 pr-3 py-2 border-0 border-b-2 border-secondary dark:border-gray-600 text-primary dark:text-white placeholder-primary/50 dark:placeholder-gray-400 bg-transparent focus:ring-0 focus:border-primary-light dark:focus:border-gray-400 transition-colors"
-                    placeholder={t('auth.register.confirmPasswordPlaceholder')}
+                    placeholder={t("auth.register.confirmPasswordPlaceholder")}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
@@ -149,7 +149,7 @@ export function Register() {
                 type="submit"
                 className="w-full py-3 px-4 text-white text-sm font-semibold rounded-lg bg-gradient-to-r from-primary via-primary-light to-secondary hover:from-primary-light hover:to-secondary dark:from-blue-600 dark:via-blue-500 dark:to-blue-600 dark:hover:from-blue-500 dark:hover:to-blue-500 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transform transition-all duration-200 hover:scale-[1.02]"
               >
-                {t('auth.register.createAccountButton')}
+                {t("auth.register.createAccountButton")}
               </button>
 
               <div className="relative my-6">
@@ -158,7 +158,7 @@ export function Register() {
                 </div>
                 <div className="relative flex justify-center text-sm">
                   <span className="px-2 bg-white dark:bg-gray-800 text-primary/60 dark:text-gray-400">
-                    {t('auth.register.orSignUp')}
+                    {t("auth.register.orSignUp")}
                   </span>
                 </div>
               </div>
@@ -173,18 +173,18 @@ export function Register() {
                   alt="Google"
                   className="w-5 h-5"
                 />
-                {t('auth.register.signUpWithGoogle')}
+                {t("auth.register.signUpWithGoogle")}
               </button>
 
               <div className="text-center mt-8">
                 <span className="text-primary/60 dark:text-gray-400">
-                  {t('auth.register.haveAccount')}{' '}
+                  {t("auth.register.haveAccount")}{" "}
                 </span>
                 <Link
-                  to="/login"
+                  to="/auth/signin"
                   className="text-primary-light hover:text-primary dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors"
                 >
-                  {t('auth.register.loginLink')}
+                  {t("auth.register.loginLink")}
                 </Link>
               </div>
             </form>

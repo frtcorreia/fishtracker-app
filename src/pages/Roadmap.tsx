@@ -7,6 +7,7 @@ import {
   Rocket,
   Fish,
   LogOut,
+  AlertCircle,
 } from "lucide-react";
 import { useAuthStore } from "../store/authStore";
 import { ThemeSwitcher } from "../components/ThemeSwitcher";
@@ -40,30 +41,31 @@ export function Roadmap() {
 
   const features = [
     {
-      title: "Core Features",
+      title: t("roadmap.sections.current"),
       status: "current",
       items: [
-        { name: "Catch Tracking", done: true },
-        { name: "Weather Integration", done: true },
-        { name: "Location Mapping", done: true },
-        { name: "Basic Analytics", done: true },
+        { name: t("roadmap.features.catchTracking"), done: true },
+        { name: t("roadmap.features.weatherIntegration"), done: true },
+        { name: t("roadmap.features.locationMapping"), done: true },
+        { name: t("roadmap.features.basicAnalytics"), done: true },
       ],
     },
     {
-      title: "Coming Soon",
+      title: t("roadmap.sections.upcoming"),
       status: "upcoming",
       items: [
-        { name: "Social Features", done: false },
-        { name: "Advanced Analytics", done: false },
-        { name: "Mobile App", done: false },
+        { name: t("roadmap.features.socialFeatures"), done: false },
+        { name: t("roadmap.features.advancedAnalytics"), done: false },
+        { name: t("roadmap.features.mobileApp"), done: false },
       ],
     },
     {
-      title: "Future Plans",
+      title: t("roadmap.sections.planned"),
       status: "planned",
       items: [
-        { name: "AI Fish Recognition", done: false },
-        { name: "Tournament Integration", done: false },
+        { name: t("roadmap.features.aiRecognition"), done: false },
+        { name: t("roadmap.features.tournament"), done: false },
+        { name: t("roadmap.features.tackleBox"), done: false },
       ],
     },
   ];
@@ -99,6 +101,23 @@ export function Roadmap() {
       {/* Content */}
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
+          {/* Status de Aprovação Pendente */}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 mb-8">
+            <div className="flex items-center justify-center mb-4">
+              <AlertCircle className="w-12 h-12 text-yellow-500 dark:text-yellow-400" />
+            </div>
+            <h2 className="text-2xl font-bold text-center text-primary dark:text-white mb-4">
+              {t("roadmap.approvalStatus.title")}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 text-center mb-4">
+              {t("roadmap.approvalStatus.description")}
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 text-center italic">
+              {t("roadmap.approvalStatus.whatToDo")}
+            </p>
+          </div>
+
+          {/* Roadmap Content */}
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
             <div className="text-center mb-12">
               <Rocket className="w-16 h-16 text-primary mx-auto mb-4" />

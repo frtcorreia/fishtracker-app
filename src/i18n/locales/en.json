@@ -332,6 +332,11 @@
   "roadmap": {
     "welcome": "Welcome to FishTracker",
     "description": "We're constantly working to improve your fishing experience. Here's what we're building and what's coming next.",
+    "approvalStatus": {
+      "title": "🎉 Registration Successful!",
+      "description": "Your registration is pending approval. As we are in beta phase, we need to manually review each new registration to ensure the quality of our community. You will be notified once your account is approved.",
+      "whatToDo": "In the meantime, you can explore our roadmap below and learn about all the features you'll have access to soon!"
+    },
     "whatNext": {
       "title": "What's Next?",
       "description": "We're working hard to bring you more features. Stay tuned for updates and new releases!"

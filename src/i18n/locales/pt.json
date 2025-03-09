@@ -346,6 +346,11 @@
   "roadmap": {
     "welcome": "Bem-vindo ao FishTracker",
     "description": "Estamos constantemente a trabalhar para melhorar a sua experiência de pesca. Aqui está o que estamos a construir e o que vem por aí...",
+    "approvalStatus": {
+      "title": "🎉 Registro Realizado com Sucesso!",
+      "description": "O seu registro está pendente de aprovação. Como estamos em fase beta, precisamos verificar manualmente cada novo registro para garantir a qualidade da nossa comunidade. Será notificado assim que sua conta for aprovada.",
+      "whatToDo": "Enquanto isso, você pode explorar nosso roadmap abaixo e conhecer todas as funcionalidades que terá acesso em breve!"
+    },
     "whatNext": {
       "title": "O que vem por aí?",
       "description": "Estamos a trabalhar no duro para trazer mais funcionalidades. Fica atento para atualizações e novos lançamentos!"
